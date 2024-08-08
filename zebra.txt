@@ -1,0 +1,9 @@
+
+
+Thunder: Lightning-Fast Forecasts, Anytime, Anywhere!
+
+background: #0F2027;
+background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);
+background: linear-gradient(to right, #2C5364, #203A43, #0F2027);
+
+npx tailwindcss-cli -i ./src/input.css -o ./src/output.css --watch
