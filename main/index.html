@@ -25,7 +25,12 @@
             <div id="main-left" class="lg:w-2/3 relative w-full">
                 <header class="mt-10 lg:ml-14">
                     <nav class="search-container relative">
-                        <input type="text" name="city" id="search-bar" class="lg:w-1/2 w-full h-10 rounded-sm py-5 px-3 bg-transparent outline-none border-2 border-white text-white font-2xl" placeholder="eg. Delhi, Mumbai, Tokyo">
+                        <div class="searh flex items-center w-full">
+                            <input id="search-bar" type="text" name="city" placeholder="eg. Delhi, Mumbai, Tokyo" class="w-full lg:w-1/2 h-10 rounded-sm py-5 px-3 bg-transparent outline-none border-2 border-white text-white font-2xl">
+                            <button class="bg-transparent text-white p-2 rounded-sm hover:bg-white hover:text-black border-2">
+                              Search
+                            </button>
+                          </div>
                         <div class="suggestion" id="suggestion-box">
                             <div id="use-location">Use current location</div>
                             <!-- Additional options can be added dynamically here -->
@@ -34,19 +39,19 @@
                 </header>
                 <div class="content mt-36 lg:absolute lg:bottom-36 md:left-16 flex flex-col gap-3 md:flex md:flex-row justify-center items-center lg:gap-5 md:justify-center md:items-center">
                     <div class="degree">
-                        <p class="md:text-8xl text-4xl font-khitan text-white">14.4&degc</p>
+                        <p id="degreeValue" class="md:text-8xl text-4xl font-khitan text-white">14.4&degc</p>
                     </div>
                     <div class="place-date flex flex-col gap-1">
                         <div class="place">
-                            <p class="md:text-6xl text-3xl text-center font-gupter font-bold text-white">Mumbai</p>
+                            <p id="cityLocattion" class="md:text-6xl text-3xl text-center font-gupter font-bold text-white">Mumbai</p>
                         </div>
                         <div class="date">
-                            <p class="md:text-xl font-khitan px-1 text-lg text-white">2024-08-08 15:37</p>
+                            <p id="dateAndTime" class="md:text-xl font-khitan px-1 text-lg text-white"></p>
                         </div>
                     </div>
                     <div class="weather-img flex flex-col">
                         <div class="img">
-                            <img src="https://cdn.weatherapi.com/weather/64x64/day/353.png" class="md:w-24 px-2" alt="">
+                            <img id="imageWeather" src="https://cdn.weatherapi.com/weather/64x64/day/353.png" class="md:w-24 px-2" alt="">
                         </div>
                     </div>
                 </div>
@@ -54,22 +59,22 @@
             <div id="main-right" class="lg:flex mt-20 lg:flex-col md:flex md:mt-40 lg:mt-0 md:flex-row md:justify-between lg:justify-between w-full gap-3 lg:w-1/3">
                 <div id="right-up" class="h-1/2 md:w-1/2 lg:w-full">
                     <div id="right-up-container" class="px-6 py-4 mt-10">
-                        <p class="text-black bg-white text-center text-xl md:text-2xl ">Light rain shower</p>
+                        <p id="valueText" class="text-black bg-white text-center text-xl md:text-2xl ">Light rain shower</p>
                         <div class="temp flex justify-between mt-8">
-                            <div class="temperature text-white font-khitan text-lg">Temperature <i class="fa-solid fa-temperature-three-quarters"></i> : </div>
-                            <div class="temperature-deg text-white font-khitan text-lg">27.9&degc</div>
+                            <div class="temperature text-white font-khitan text-lg">Precipitaion <i class="fa-solid fa-cloud-rain"></i> : </div>
+                            <div id="preciToday" class="temperature-deg text-white font-khitan text-lg">1%</div>
                         </div>
                         <div class="temp flex justify-between mt-8">
                             <div class="temperature text-white font-khitan text-lg">Humidity <span class="material-symbols-outlined">
                                 humidity_low
                                 </span> : </div>
-                            <div class="temperature-deg text-white font-khitan text-lg">82%</div>
+                            <div id="humiToday" class="temperature-deg text-white font-khitan text-lg">82%</div>
                         </div>
                         <div class="temp flex justify-between mt-8">
                             <div class="temperature text-white font-khitan text-lg">Wind <span class="material-symbols-outlined">
                                 energy
                                 </span> : </div>
-                            <div class="temperature-deg text-white font-khitan text-lg">22kph</div>
+                            <div id="windToday" class="temperature-deg text-white font-khitan text-lg">22kph</div>
                         </div>
                     </div>
                 </div>
@@ -78,39 +83,39 @@
                         <div id="right-down-container" class="px-6 py-4">
                             <div id="fiveDaysDetails" class="overflow-x-auto flex flex-nowrap whitespace-nowrap gap-3 mb-2">
                                 <div class="days px-4 py-4">
-                                    <img src="//cdn.weatherapi.com/weather/64x64/day/302.png" alt="" class="mx-auto">
-                                    <p class="mt-4 text-base text-white">Temp - 27.5&degc</p>
-                                    <p class="mt-4 text-base text-white">wind - 22 kph</p>
-                                    <p class="mt-4 text-base text-white">Humi - 82%</p>
-                                    <p class="text-lg font-bold px-3 mt-5 bg-white text-black">09-08-24</p>
+                                    <img id="imageWeatherOne" src="//cdn.weatherapi.com/weather/64x64/day/302.png" alt="" class="mx-auto">
+                                    <p id="tempTodayOne" class="mt-4 text-base text-white">Temp - 27.5&degc</p>
+                                    <p id="windTodayOne" class="mt-4 text-base text-white">wind - 22 kph</p>
+                                    <p id="humiTodayOne" class="mt-4 text-base text-white">Humi - 82%</p>
+                                    <p id="dateForecasrOne" class="text-lg font-bold px-3 mt-5 bg-white text-black">09-08-24</p>
                                 </div>
                                 <div class="days px-4 py-4">
-                                    <img src="//cdn.weatherapi.com/weather/64x64/day/302.png" alt="" class="mx-auto">
-                                    <p class="mt-4 text-base text-white">Temp - 27.5&degc</p>
-                                    <p class="mt-4 text-base text-white">wind - 22 kph</p>
-                                    <p class="mt-4 text-base text-white">Humi - 82%</p>
-                                    <p class="text-lg font-bold px-3 mt-5 bg-white text-black">10-08-24</p>
+                                    <img id="imageWeatherTwo" src="//cdn.weatherapi.com/weather/64x64/day/302.png" alt="" class="mx-auto">
+                                    <p id="tempTodayTwo" class="mt-4 text-base text-white">Temp - 27.5&degc</p>
+                                    <p id="windTodayTwo" class="mt-4 text-base text-white">wind - 22 kph</p>
+                                    <p id="humiTodayTwo" class="mt-4 text-base text-white">Humi - 82%</p>
+                                    <p id="dateForecasrTwo" class="text-lg font-bold px-3 mt-5 bg-white text-black">10-08-24</p>
                                 </div>
                                 <div class="days px-4 py-4">
-                                    <img src="//cdn.weatherapi.com/weather/64x64/day/302.png" alt="" class="mx-auto">
-                                    <p class="mt-4 text-base text-white">Temp - 27.5&degc</p>
-                                    <p class="mt-4 text-base text-white">wind - 22 kph</p>
-                                    <p class="mt-4 text-base text-white">Humi - 82%</p>
-                                    <p class="text-lg font-bold px-3 mt-5 bg-white text-black">11-08-24</p>
+                                    <img id="imageWeatherThree" src="//cdn.weatherapi.com/weather/64x64/day/302.png" alt="" class="mx-auto">
+                                    <p id="tempTodayThree" class="mt-4 text-base text-white">Temp - 27.5&degc</p>
+                                    <p id="windTodayThree" class="mt-4 text-base text-white">wind - 22 kph</p>
+                                    <p id="humiTodayThree" class="mt-4 text-base text-white">Humi - 82%</p>
+                                    <p id="dateForecasrThree" class="text-lg font-bold px-3 mt-5 bg-white text-black">11-08-24</p>
                                 </div>
                                 <div class="days px-4 py-4">
-                                    <img src="//cdn.weatherapi.com/weather/64x64/day/302.png" alt="" class="mx-auto">
-                                    <p class="mt-4 text-base text-white">Temp - 27.5&degc</p>
-                                    <p class="mt-4 text-base text-white">wind - 22 kph</p>
-                                    <p class="mt-4 text-base text-white">Humi - 82%</p>
-                                    <p class="text-lg font-bold px-3 mt-5 bg-white text-black">12-08-24</p>
+                                    <img id="imageWeatherFour" src="//cdn.weatherapi.com/weather/64x64/day/302.png" alt="" class="mx-auto">
+                                    <p id="tempTodayFour" class="mt-4 text-base text-white">Temp - 27.5&degc</p>
+                                    <p id="windTodayFour" class="mt-4 text-base text-white">wind - 22 kph</p>
+                                    <p id="humiTodayFour" class="mt-4 text-base text-white">Humi - 82%</p>
+                                    <p id="dateForecasrFour" class="text-lg font-bold px-3 mt-5 bg-white text-black">12-08-24</p>
                                 </div>
                                 <div class="days px-4 py-4">
-                                    <img src="//cdn.weatherapi.com/weather/64x64/day/302.png" alt="" class="mx-auto">
-                                    <p class="mt-4 text-base text-white">Temp - 27.5&degc</p>
-                                    <p class="mt-4 text-base text-white">wind - 22 kph</p>
-                                    <p class="mt-4 text-base text-white">Humi - 82%</p>
-                                    <p class="text-lg font-bold px-3 mt-5 bg-white text-black">12-08-24</p>
+                                    <img id="imageWeatherFive" src="//cdn.weatherapi.com/weather/64x64/day/302.png" alt="" class="mx-auto">
+                                    <p id="tempTodayFive" class="mt-4 text-base text-white">Temp - 27.5&degc</p>
+                                    <p id="windTodayFive" class="mt-4 text-base text-white">wind - 22 kph</p>
+                                    <p id="humiTodayFive" class="mt-4 text-base text-white">Humi - 82%</p>
+                                    <p id="dateForecasrFive" class="text-lg font-bold px-3 mt-5 bg-white text-black">12-08-24</p>
                                 </div>
                             </div>
                         </div>
