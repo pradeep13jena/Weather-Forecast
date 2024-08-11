@@ -8,8 +8,10 @@ const btn = document.querySelector('button');
 
 // For Date 
 
-const now = new Date()
-const date = now.toISOString().split('T')[0];
+const now = document.getElementById('time')
+
+// const now = new Date()
+// const date = now.toISOString().split('T')[0];
 
 
 // Finding the value of current weather data to display
@@ -81,7 +83,8 @@ async function feedUI(citie){
         }
 
         const data = await response.json()
-
+        
+        now.innerHTML = `${data.location.localtime}`
         degreeValue.innerHTML = `${Math.trunc(data.current.temp_c)}&degc`
         cityLocattion.innerHTML = `${data.location.name.charAt(0).toUpperCase() + data.location.name.slice(1)}`
         dateAndTime.innerHTML = `(${data.location.region}, ${data.location.country})`
@@ -194,17 +197,17 @@ async function search(){
 }
 
 
-function restoreElement(){
-    savedValue = sessionStorage.getItem('suggestionBox')
-    console.log(savedValue);
+// function restoreElement(){
+//     savedValue = sessionStorage.getItem('suggestionBox')
+//     console.log(savedValue);
     
-    if (savedValue){
-        suggestions.innerHTML = savedValue
-    } else {
-        suggestions.innerHTML = useLocation.innerText + savedValue
-    }
-}
+//     if (savedValue){
+//         suggestions.innerHTML = savedValue
+//     } else {
+//         suggestions.innerHTML = useLocation.innerText + savedValue
+//     }
+// }
 
 btn.addEventListener('click', search)
 
-window.reload = restoreElement
+//window.reload = restoreElement
