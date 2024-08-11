@@ -81,7 +81,6 @@ async function feedUI(citie){
         }
 
         const data = await response.json()
-        console.log(data.location)
 
         degreeValue.innerHTML = `${Math.trunc(data.current.temp_c)}&degc`
         cityLocattion.innerHTML = `${data.location.name.charAt(0).toUpperCase() + data.location.name.slice(1)}`
@@ -150,18 +149,7 @@ searchBar.addEventListener('blur', () => {
         suggestions.classList.remove('active');
         suggestions.classList.add('suggestion');
     }, 400);
-});
-
-useLocation.addEventListener('click', () => {
-    alert("Using current location...");
-    // Here you can add functionality to get the user's current location.
-    // For example, using the Geolocation API.
-    navigator.geolocation.getCurrentPosition((position) => {
-        const { latitude, longitude } = position.coords;
-        console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
-        // You can now use the latitude and longitude for further processing.
-    });
-});     
+});  
 
 // This function takes the value from searchbar and then save it for temporary as session storage is used.
 function searchBox(){
@@ -171,14 +159,21 @@ function searchBox(){
     divInSearchBar.innerHTML = searchBar.value.charAt(0).toUpperCase() + searchBar.value.slice(1)
     suggestions.appendChild(divInSearchBar)
     suggestions.appendChild(Line)
-    console.log(suggestions);
     
     sessionStorage.setItem("suggestionBox", suggestions.innerHTML);
 }
 
 async function valueFromSearchBar(e){
     cityFromSearchBar = e.target.innerText
-    feedUI(cityFromSearchBar)
+    if (cityFromSearchBar === 'Use current Location') {
+        navigator.geolocation.getCurrentPosition((position) => {
+            const { latitude, longitude } = position.coords;
+            cityInLongLang = `${latitude}, ${longitude}`
+            feedUI(cityInLongLang)
+        });
+    } else {
+        feedUI(cityFromSearchBar)
+    }
 }
 
 suggestions.addEventListener('click', valueFromSearchBar)
@@ -191,6 +186,7 @@ async function search(){
         alert("Please enter city name, City name can't be blank")
     } else {
         cityName = searchBar.value
+        
         feedUI(cityName)
     }
     
@@ -198,15 +194,17 @@ async function search(){
 }
 
 
-// function restoreElement(){
-//     savedValue = sessionStorage.getItem('suggestionBox')
-//     if (savedValue){
-//         suggestions.innerHTML = savedValue
-//     } else {
-//         suggestions.innerHTML = useLocation.innerText + savedValue
-//     }
-// }
+function restoreElement(){
+    savedValue = sessionStorage.getItem('suggestionBox')
+    console.log(savedValue);
+    
+    if (savedValue){
+        suggestions.innerHTML = savedValue
+    } else {
+        suggestions.innerHTML = useLocation.innerText + savedValue
+    }
+}
 
 btn.addEventListener('click', search)
 
-//window.reload = restoreElement
+window.reload = restoreElement
