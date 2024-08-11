@@ -12,7 +12,7 @@ const now = new Date()
 const date = now.toISOString().split('T')[0];
 
 
-// Finding the value of currect weather data to display
+// Finding the value of current weather data to display
 const degreeValue = document.getElementById('degreeValue')
 const cityLocattion = document.getElementById('cityLocattion')
 const dateAndTime = document.getElementById('dateAndTime')
@@ -60,49 +60,14 @@ const humiTodayFive = document.getElementById('humiTodayFive')
 const windTodayFive = document.getElementById('windTodayFive')
 const dateFive = document.getElementById('dateForecasrFive')
 
-function updateDateTime(){
-    dateAndTime.innerHTML = `${date}`
-}
-
-window.onload = updateDateTime()
-
-searchBar.addEventListener('focus', () => {
-    suggestions.classList.remove('suggestion');
-    suggestions.classList.add('active');
-});
-
-searchBar.addEventListener('blur', () => {
-    setTimeout(() => {
-        suggestions.classList.remove('active');
-        suggestions.classList.add('suggestion');
-    }, 400);
-});
-
-useLocation.addEventListener('click', () => {
-    alert("Using current location...");
-    // Here you can add functionality to get the user's current location.
-    // For example, using the Geolocation API.
-    navigator.geolocation.getCurrentPosition((position) => {
-        const { latitude, longitude } = position.coords;
-        console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
-        // You can now use the latitude and longitude for further processing.
-    });
-});
-
-async function search(){
-    divInSearchBar = document.createElement('div')
-    divInSearchBar.innerText = searchBar.value
-    suggestions.appendChild(divInSearchBar)
-
-    localStorage.setItem("suggestionBox", suggestions.innerHTML);
+// Created a async function which takes city value and then feed the UI
+async function feedUI(citie){
 
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 5000);
 
-    cityName = searchBar.value
-
     try{
-        const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=c3d1cab6249d4373bc3131136240608&q=${cityName}&days=5`, {
+        const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=c3d1cab6249d4373bc3131136240608&q=${citie}&days=5`, {
             signal: controller.signal, // Pass the AbortController signal
         });
     
@@ -116,10 +81,11 @@ async function search(){
         }
 
         const data = await response.json()
+        console.log(data.location)
 
         degreeValue.innerHTML = `${Math.trunc(data.current.temp_c)}&degc`
-        cityLocattion.innerHTML = `${cityName}`
-        dateAndTime.innerHTML = `${date}`
+        cityLocattion.innerHTML = `${data.location.name.charAt(0).toUpperCase() + data.location.name.slice(1)}`
+        dateAndTime.innerHTML = `(${data.location.region}, ${data.location.country})`
         imageWeather.src = `${data.current.condition.icon}`
         preciToday.innerHTML = `${data.current.precip_mm}%`
         humiToday.innerHTML = `${data.current.humidity}%`
@@ -165,25 +131,82 @@ async function search(){
         if (error.name === "AbortError") {
           alert("Request timed out. Please try again.")
         } else if (error.message.startsWith("HTTP error!")) {
-           alert(`API error: ${error.message}`)
+           alert(`No Such city as "${cityName}", Enter Correct name of city `)
         } else {
           alert(`Network error: ${error.message}`)
         }
       }
+}
 
+// For the suggestion box, as soon as the suggestion box is focused you can see all the option of the cities
+searchBar.addEventListener('focus', () => {
+    suggestions.classList.remove('suggestion');
+    suggestions.classList.add('active');
+});
+
+// For the suggestion box, as soon as the suggestion box is out of focused you can see all the option of the cities
+searchBar.addEventListener('blur', () => {
+    setTimeout(() => {
+        suggestions.classList.remove('active');
+        suggestions.classList.add('suggestion');
+    }, 400);
+});
+
+useLocation.addEventListener('click', () => {
+    alert("Using current location...");
+    // Here you can add functionality to get the user's current location.
+    // For example, using the Geolocation API.
+    navigator.geolocation.getCurrentPosition((position) => {
+        const { latitude, longitude } = position.coords;
+        console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
+        // You can now use the latitude and longitude for further processing.
+    });
+});     
+
+// This function takes the value from searchbar and then save it for temporary as session storage is used.
+function searchBox(){
+    divInSearchBar = document.createElement('div')
+    Line = document.createElement('hr')
+    Line.classList.add("mb-3");
+    divInSearchBar.innerHTML = searchBar.value.charAt(0).toUpperCase() + searchBar.value.slice(1)
+    suggestions.appendChild(divInSearchBar)
+    suggestions.appendChild(Line)
+    console.log(suggestions);
+    
+    sessionStorage.setItem("suggestionBox", suggestions.innerHTML);
+}
+
+async function valueFromSearchBar(e){
+    cityFromSearchBar = e.target.innerText
+    feedUI(cityFromSearchBar)
+}
+
+suggestions.addEventListener('click', valueFromSearchBar)
+
+async function search(){
+
+    searchBox()
+
+    if (searchBar.value === ""){
+        alert("Please enter city name, City name can't be blank")
+    } else {
+        cityName = searchBar.value
+        feedUI(cityName)
+    }
     
 
 }
 
-function restoreElement(){
-    savedValue = localStorage.getItem('suggestionBox')
-    if (savedValue){
-        suggestions.innerHTML = savedValue
-    } else {
-        suggestions.innerHTML = useLocation.innerHTML
-    }
-}
+
+// function restoreElement(){
+//     savedValue = sessionStorage.getItem('suggestionBox')
+//     if (savedValue){
+//         suggestions.innerHTML = savedValue
+//     } else {
+//         suggestions.innerHTML = useLocation.innerText + savedValue
+//     }
+// }
 
 btn.addEventListener('click', search)
 
-window.onload = restoreElement
+//window.reload = restoreElement
