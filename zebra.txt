@@ -3,5 +3,5 @@ github file link = https://github.com/pradeep13jena/Weather-Forecast
 npx tailwindcss-cli -i ./src/input.css -o ./src/output.css --watch
 
 
---> readME file update
+--> Create new key for latest update
 --> read the internshala document

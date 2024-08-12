@@ -71,7 +71,7 @@ function restoreElement(){
 
     // IF savedCity is null (as there is nothing in there) in session storage then display 'Mumbai' as default city
     if(savedCItyInSess === null){
-        feedUI('San Francisco')
+        feedUI('Mumbai')
     } else { //If there is some value in session storage for savedCIty then display that value
         feedUI(savedCItyInSess)
     }
@@ -120,7 +120,7 @@ async function feedUI(citie){
             searchBar.value = ''
         }
 
-        // Convert the returned data to json format
+        // Convert the returned data to javascript object format
         const data = await response.json()
         
         // Now fill the data on to screen
