@@ -31,7 +31,7 @@ Types of data it'll return
     2) Local Time and Date (bottom left corner)
     3) Temperature
     4) Type of weather icon
-    5) Precipitaion, Humidity, wind speed
+    5) Precipitaion, Humidity, wind speed~
     6) 5 days of forecast, it'll contain Temparature, Wind speed, Humidity and future Dates
 
 
