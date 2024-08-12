@@ -3,6 +3,5 @@ github file link = https://github.com/pradeep13jena/Weather-Forecast
 npx tailwindcss-cli -i ./src/input.css -o ./src/output.css --watch
 
 
---> Update the search bar suggestion with session storage and all
---> rearrange the js file add proper comments and update the readme file.
+--> readME file update
 --> read the internshala document

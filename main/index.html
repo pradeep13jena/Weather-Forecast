@@ -21,40 +21,53 @@
     <title>Thunder: Lightning-Fast Forecasts, Anytime, Anywhere!</title>
 </head>
 <body class="body-morning">
+    <!-- This container is for showing local time and date of the searched place at fixed position whixh is at bottom left position -->
     <div id="time" class="fixed bottom-0 left-0 p-2 bg-white">
         2024-08-11 23:09
     </div>
+    <!-- The main or hero container everythng is inside this container which is divided into two parts-->
     <div id="container" class="px-3 md:px-6 md:py-6 lg:px-12 lg:py-5 w-full h-full flex flex-col lg:flex lg:flex-row gap-2">
+        <!--The first part of main container which is on left side when the screen > 1024px and rest of the time it's on top -->
             <div id="main-left" class="lg:w-2/3 relative w-full">
+                <!-- header tag which containe search bar and recently search items -->
                 <header class="mt-10 lg:ml-14">
                     <nav class="search-container relative ">
+                        <!-- Div section to hold searchbar and search button -->
                         <div class="searh flex items-center w-full gap-1">
+                            <!-- Input tag for search bar -->
                             <input id="search-bar" type="text" name="city" placeholder="eg. Delhi, Mumbai, Tokyo" class="w-full lg:w-1/2 h-10 rounded-sm py-5 px-3 bg-transparent outline-none border-2 border-white text-white font-2xl">
+                            <!-- search button for search bar which upon cliciking do the function-->
                             <button class="bg-transparent text-white p-2 rounded-sm hover:bg-white hover:text-black border-2">
                                 Search
                               </button>
                         </div>
+                        <!-- Suggestion box which contains recently search items which is usually hidden until the search box is focused upon -->
                         <div class="suggestion max-h-44 overflow-y-auto leading-normal" id="suggestion-box">
                             <!-- Additional options can be added dynamically here -->
                              <div id="onlyForUseCurrent">
+                                <!-- Div for holding the current location text which when clicked takes your current location and do rest of funcitoning -->
                                 <div id="use-location">Use current Location</div>
                                 <hr class="mb-3">
                              </div>
                         </div>
                     </nav>
                 </header>
+                <!-- This part of div holds the city, country name icon and degree -->
                 <div class="content mt-36 lg:absolute lg:bottom-36 md:left-16 flex flex-col gap-2 md:flex md:flex-row justify-center items-center lg:gap-5 md:justify-center md:items-center">
+                    <!-- Degree div -->
                     <div class="degree">
                         <p id="degreeValue" class="md:text-8xl text-4xl font-khitan text-white">14.4&degc</p>
                     </div>
+                    <!-- City and country div -->
                     <div class="place-date flex flex-col gap-1 items-center">
                         <div class="place">
-                            <p id="cityLocattion" class="md:text-6xl text-3xl text-center font-gupter font-bold text-white">Mumbai</p>
+                            <p id="cityLocattion" class="md:text-6xl text-3xl text-center font-gupter font-bold text-white">San Francisco</p>
                         </div>
                         <div class="date">
                             <p id="dateAndTime" class="md:text-base font-khitan px-1 text-base text-white">Maharashtra, India</p>
                         </div>
                     </div>
+                    <!-- Icon div -->
                     <div class="weather-img flex flex-col">
                         <div class="img">
                             <img id="imageWeather" src="https://cdn.weatherapi.com/weather/64x64/day/353.png" class="md:w-24 px-2" alt="">
@@ -62,7 +75,10 @@
                     </div>
                 </div>
             </div>
+        <!--The second part of main container which is on right side when the screen > 1024px and rest of the time it's on bottom -->
             <div id="main-right" class="lg:flex mt-20 lg:flex-col md:flex md:mt-40 lg:mt-0 md:flex-row md:justify-between lg:justify-between w-full gap-3 lg:w-1/3">
+                <!-- second part again is divided into two part which usually stays columnar wise until for speciic time when they stays sideways -->
+                 <!-- This part usually contains important imformation about weather for current date -->
                 <div id="right-up" class="h-1/2 md:w-1/2 lg:w-full">
                     <div id="right-up-container" class="px-6 py-4 mt-10">
                         <p id="valueText" class="text-black bg-white text-center text-xl md:text-2xl ">Light rain shower</p>
@@ -84,10 +100,12 @@
                         </div>
                     </div>
                 </div>
+                <!-- This div contains 5 day forecast of the specific location searched -->
                 <div id="right-down" class="h-1/2 md:w-1/2 lg:w-full">
                     <div class="holdIT">
                         <div id="right-down-container" class="px-6 py-4">
-                            <div id="fiveDaysDetails" class="overflow-x-auto flex flex-nowrap whitespace-nowrap gap-3 mb-2">
+                            <div id="fiveDaysDetails" class="overflow-x-auto flex flex-nowrap whitespace-nowrap gap-3 mb-6">
+                                <!-- Day one -->
                                 <div class="days px-4 py-4">
                                     <img id="imageWeatherOne" src="//cdn.weatherapi.com/weather/64x64/day/302.png" alt="" class="mx-auto">
                                     <p id="tempTodayOne" class="mt-4 text-base text-white">Temp - 27.5&degc</p>
@@ -95,6 +113,7 @@
                                     <p id="humiTodayOne" class="mt-4 text-base text-white">Humi - 82%</p>
                                     <p id="dateForecasrOne" class="text-lg font-bold px-3 mt-5 bg-white text-black">09-08-24</p>
                                 </div>
+                                <!-- Day Two -->
                                 <div class="days px-4 py-4">
                                     <img id="imageWeatherTwo" src="//cdn.weatherapi.com/weather/64x64/day/302.png" alt="" class="mx-auto">
                                     <p id="tempTodayTwo" class="mt-4 text-base text-white">Temp - 27.5&degc</p>
@@ -102,6 +121,7 @@
                                     <p id="humiTodayTwo" class="mt-4 text-base text-white">Humi - 82%</p>
                                     <p id="dateForecasrTwo" class="text-lg font-bold px-3 mt-5 bg-white text-black">10-08-24</p>
                                 </div>
+                                <!-- Day Three -->
                                 <div class="days px-4 py-4">
                                     <img id="imageWeatherThree" src="//cdn.weatherapi.com/weather/64x64/day/302.png" alt="" class="mx-auto">
                                     <p id="tempTodayThree" class="mt-4 text-base text-white">Temp - 27.5&degc</p>
@@ -109,6 +129,7 @@
                                     <p id="humiTodayThree" class="mt-4 text-base text-white">Humi - 82%</p>
                                     <p id="dateForecasrThree" class="text-lg font-bold px-3 mt-5 bg-white text-black">11-08-24</p>
                                 </div>
+                                <!-- Day Four -->
                                 <div class="days px-4 py-4">
                                     <img id="imageWeatherFour" src="//cdn.weatherapi.com/weather/64x64/day/302.png" alt="" class="mx-auto">
                                     <p id="tempTodayFour" class="mt-4 text-base text-white">Temp - 27.5&degc</p>
@@ -116,6 +137,7 @@
                                     <p id="humiTodayFour" class="mt-4 text-base text-white">Humi - 82%</p>
                                     <p id="dateForecasrFour" class="text-lg font-bold px-3 mt-5 bg-white text-black">12-08-24</p>
                                 </div>
+                                <!-- Day Five -->
                                 <div class="days px-4 py-4">
                                     <img id="imageWeatherFive" src="//cdn.weatherapi.com/weather/64x64/day/302.png" alt="" class="mx-auto">
                                     <p id="tempTodayFive" class="mt-4 text-base text-white">Temp - 27.5&degc</p>

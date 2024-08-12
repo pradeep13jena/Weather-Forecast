@@ -3,7 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* For Suggestion Box */
+/* These contain additional classes for suggestion box */
 .active {
   @apply absolute top-10 left-0 right-0 bg-white lg:w-1/2 px-3 py-2 rounded-sm;
 }
