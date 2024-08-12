@@ -1,12 +1,8 @@
-Thunder: Lightning-Fast Forecasts, Anytime, Anywhere!
-
-background: #0F2027;
-background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);
-background: linear-gradient(to right, #2C5364, #203A43, #0F2027);
+github file link = https://github.com/pradeep13jena/Weather-Forecast
 
 npx tailwindcss-cli -i ./src/input.css -o ./src/output.css --watch
 
 
---> Add the country
---> Correct the Date and Time
---> Update the search bar suggestion
+--> Update the search bar suggestion with session storage and all
+--> rearrange the js file add proper comments and update the readme file.
+--> read the internshala document

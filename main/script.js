@@ -2,6 +2,7 @@
 const searchBar = document.querySelector('#search-bar');
 const suggestions = document.querySelector('#suggestion-box');
 const useLocation = document.getElementById('use-location');
+const onlyForUseCurrent = document.getElementById('onlyForUseCurrent')
 
 // For button
 const btn = document.querySelector('button');
@@ -151,7 +152,7 @@ searchBar.addEventListener('blur', () => {
     setTimeout(() => {
         suggestions.classList.remove('active');
         suggestions.classList.add('suggestion');
-    }, 400);
+    }, 300);
 });  
 
 // This function takes the value from searchbar and then save it for temporary as session storage is used.
@@ -163,8 +164,9 @@ function searchBox(){
     suggestions.appendChild(divInSearchBar)
     suggestions.appendChild(Line)
     
-    sessionStorage.setItem("suggestionBox", suggestions.innerHTML);
+    sessionStorage.setItem("saveIT", suggestions.innerHTML);
 }
+
 
 async function valueFromSearchBar(e){
     cityFromSearchBar = e.target.innerText
@@ -196,18 +198,18 @@ async function search(){
 
 }
 
-
-// function restoreElement(){
-//     savedValue = sessionStorage.getItem('suggestionBox')
-//     console.log(savedValue);
-    
-//     if (savedValue){
-//         suggestions.innerHTML = savedValue
-//     } else {
-//         suggestions.innerHTML = useLocation.innerText + savedValue
-//     }
-// }
-
 btn.addEventListener('click', search)
 
-//window.reload = restoreElement
+function restoreElement(){
+    savedItem = sessionStorage.getItem('saveIT')
+    console.log('reloaded')
+    console.log(savedItem);
+
+    if (savedItem === null) {
+        suggestions.innerHTML = onlyForUseCurrent.innerHTML
+    } else {
+        suggestions.innerHTML = savedItem
+    }
+}
+
+window.onload = restoreElement
