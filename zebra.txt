@@ -1,8 +1,2 @@
 github file link = https://github.com/pradeep13jena/Weather-Forecast
-github website Link = 
-
-npx tailwindcss-cli -i ./src/input.css -o ./src/output.css --watch
-
---> Create new key for latest update
---> read the internshala document
---> Add the website link
+Website Link = https://thunder-pradeep13jenas-projects.vercel.app/
