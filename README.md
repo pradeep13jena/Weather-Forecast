@@ -1,7 +1,5 @@
 Welcome to project "THUNDER". A bit exaggeration but stay with me ;)
 
-**click on the searchbar to see all the option included Use current location**
-
 In this we are trying to make Weather forecast app, We are going to use HTML, CSS, Tailwind (for front-end part) and Javascript (for backend part)to make our website dynamic.
 
 We are using "https://api.weatherapi.com/v1/forecast.json?key=c3d1cab6249d4373bc3131136240608&q=${city Name}&days=5" as our API. As it is free and legitimate. Only city name has to be inserted to pull all weather data related to the city
