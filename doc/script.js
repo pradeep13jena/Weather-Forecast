@@ -131,7 +131,7 @@ async function feedUI(citie){
         sessionStorage.setItem('savedCity', cityLocattion.innerText) // created this session storage
 
         dateAndTime.innerHTML = `(${data.location.region}, ${data.location.country})` //Country name
-        imageWeather.src = `${data.current.condition.icon}` //icon to be displayed
+        imageWeather.src = `https:${data.current.condition.icon}` //icon to be displayed
         preciToday.innerHTML = `${data.current.precip_mm}%` //precipitation
         humiToday.innerHTML = `${data.current.humidity}%` //humidity
         windToday.innerHTML = `${data.current.wind_kph}kph` // wind speed
@@ -139,35 +139,35 @@ async function feedUI(citie){
 
         // Updating 1st day forecasted weather data
         dateOne.innerHTML = data.forecast.forecastday[0].date // local date + 1 day
-        imageWeatherOne.src = data.forecast.forecastday[0].day.condition.icon // icon to be displayed
+        imageWeatherOne.src = `https:${data.forecast.forecastday[0].day.condition.icon}` // icon to be displayed
         tempTodayOne.innerHTML = `Temp - ${Math.trunc(data.forecast.forecastday[0].day.avgtemp_c)}&degc` //degree
         windTodayOne.innerHTML = `Wind - ${data.forecast.forecastday[0].day.maxwind_kph} kph` //wind
         humiTodayOne.innerHTML = `Humi - ${data.forecast.forecastday[0].day.avghumidity}%` //humidity
         
         // Updating 2nd day forecasted weather data
         dateTwo.innerHTML = data.forecast.forecastday[1].date// local date + 1 day
-        imageWeatherTwo.src = data.forecast.forecastday[1].day.condition.icon // icon to be displayed
+        imageWeatherTwo.src = `https:${data.forecast.forecastday[1].day.condition.icon}` // icon to be displayed
         tempTodayTwo.innerHTML = `Temp - ${Math.trunc(data.forecast.forecastday[1].day.avgtemp_c)}&degc` //degree
         windTodayTwo.innerHTML = `Wind - ${data.forecast.forecastday[1].day.maxwind_kph} kph`//wind
         humiTodayTwo.innerHTML = `Humi - ${data.forecast.forecastday[1].day.avghumidity}%` //humidity
 
         // Updating 3rd day forecasted weather data
         dateThree.innerHTML = data.forecast.forecastday[2].date// local date + 1 day
-        imageWeatherThree.src = data.forecast.forecastday[2].day.condition.icon // icon to be displayed
+        imageWeatherThree.src = `https:${data.forecast.forecastday[2].day.condition.icon}` // icon to be displayed
         tempTodayThree.innerHTML = `Temp - ${Math.trunc(data.forecast.forecastday[2].day.avgtemp_c)}&degc` //degree
         windTodayThree.innerHTML = `Wind - ${data.forecast.forecastday[2].day.maxwind_kph} kph`//wind
         humiTodayThree.innerHTML = `Humi - ${data.forecast.forecastday[2].day.avghumidity}%` //humidity
 
         // Updating 4th day forecasted weather data
         dateFour.innerHTML = data.forecast.forecastday[3].date// local date + 1 day
-        imageWeatherFour.src = data.forecast.forecastday[3].day.condition.icon // icon to be displayed
+        imageWeatherFour.src = `https:${data.forecast.forecastday[3].day.condition.icon}` // icon to be displayed
         tempTodayFour.innerHTML = `Temp - ${Math.trunc(data.forecast.forecastday[3].day.avgtemp_c)}&degc` //degree
         windTodayFour.innerHTML = `Wind - ${data.forecast.forecastday[3].day.maxwind_kph} kph`//wind
         humiTodayFour.innerHTML = `Humi - ${data.forecast.forecastday[3].day.avghumidity}%` //humidity
 
         // Updating 5th day forecasted weather data
         dateFive.innerHTML = data.forecast.forecastday[4].date// local date + 1 day
-        imageWeatherFive.src = data.forecast.forecastday[4].day.condition.icon // icon to be displayed
+        imageWeatherFive.src = `https:${data.forecast.forecastday[4].day.condition.icon}` // icon to be displayed
         tempTodayFive.innerHTML = `Temp - ${Math.trunc(data.forecast.forecastday[4].day.avgtemp_c)}&degc` //degree
         windTodayFive.innerHTML = `Wind - ${data.forecast.forecastday[4].day.maxwind_kph} kph`//wind
         humiTodayFive.innerHTML = `Humi - ${data.forecast.forecastday[4].day.avghumidity}%` //humidity

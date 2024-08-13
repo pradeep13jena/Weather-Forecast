@@ -1,12 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./main/index.html"],
+  content: ['/doc/index.html'],
   theme: {
-    fontFamily: {
-      'khitan': ["Noto Serif Khitan Small Script", 'serif'],
-      'gupter': ["Gupter", "serif"]
-  },
-    extend: {},
+    extend: {
+      fontFamily: {
+        'khitan': ["Noto Serif Khitan Small Script", 'serif'],
+        'gupter': ["Gupter", "serif"]
+      }
+    },
   },
   plugins: [],
 }
