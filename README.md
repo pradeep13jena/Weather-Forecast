@@ -1,5 +1,7 @@
 Welcome to project "THUNDER". A bit exaggeration but stay with me ;)
 
+**click on the searchbar to see all the option included Use current location**
+
 In this we are trying to make Weather forecast app, We are going to use HTML, CSS, Tailwind (for front-end part) and Javascript (for backend part)to make our website dynamic.
 
 We are using "https://api.weatherapi.com/v1/forecast.json?key=c3d1cab6249d4373bc3131136240608&q=${city Name}&days=5" as our API. As it is free and legitimate. Only city name has to be inserted to pull all weather data related to the city
@@ -7,6 +9,8 @@ We are using "https://api.weatherapi.com/v1/forecast.json?key=c3d1cab6249d4373bc
 First i designed my UI for the weather app, You can see it in the Asset folder the initial design which ultimately had to change to fit the requirements and UI. I desgined the main container which contains everything. And the main container was divided into two parts right and left and as soon as the specific screen size is met they will be like it otherwise they will be stacking upon each other. and The right part contain three more part the searchbox, the recently searched box and the display the current data part. The recently searched city box is not visible until the search bar is focused upon this required brainstorming to do this because initially there was some error and i did not achived this stage. But ultimately i did this. 
 
 And after this the second part which is initially (if on desktop) is on right is further divided into two more part upper part and lower, Lower part contains five days forecast of the same city with details like wind, humidity & precipitation. The upper part contains few more details such as wind, precipitation, humidity and degree. And is mobile first project and can be used on any device. 
+
+**click on the searchbar to see all the option included Use current location**
 
 And to understand logic part of this website you can go to into the asset folder and see the image.
 
