@@ -10,7 +10,7 @@ And after this the second part which is initially (if on desktop) is on right is
 
 **click on the searchbar to see all the option included Use current location**
 
-And to understand logic part of this website you can go to into the asset folder and see the image.
+And to understand logic part of this website you can go to into the asset folder and see the flowchart image, it'll help you understand the way the flow of this website will be.
 
 Things it can do: 
 
@@ -37,4 +37,4 @@ Types of data it'll return
     6) 5 days of forecast, it'll contain Temparature, Wind speed, Humidity and future Dates
 
 
-If you want to use this project for your own purpose feel free to use, But remember to generate your own key from "https://api.weatherapi.com/". As mine is free to use so only current + 3 future dates data is there to use.
+If you want to use this project for your own purpose feel free to use, But remember to generate your own key from "https://api.weatherapi.com/". As mine is free to use so only current + 3 future dates data is there to use. And after this you can just go ahead and open your file in files and good to go.
